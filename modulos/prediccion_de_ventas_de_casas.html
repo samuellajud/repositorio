@@ -9,20 +9,20 @@
 		<title>Practica "Prediccion de ventas de casas" </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Data Analytics</a>
+				<a href="../index.html" class="title">Data Analytics</a>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="generic.html" class="active">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
-						<li><a href="C:\Users\HP\Desktop\curso data sciencist\portfolio\Portafolio\archivos_para_descargas\abandono,empleados\Business_Analytics_abandono-de_empleados.zip" download>Descargar Archivo Comprimido</a></li>
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="../generic.html" class="active">Generic</a></li>
+						<li><a href="../elements.html">Elements</a></li>
+						<li><a href="../descargas/prediccion_precios_casas/dataset-crudo.zip" download>Descargar Archivo Comprimido</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -34,41 +34,41 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Prediccion de ventas de casas </h1>
-							<span class="image fit"><img src="images/abandono-empleado.jpg" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/abandono-empleado.jpg" alt="" /></span>
 							<p>Base de datos proporcionada por kaggle.com, nos da una situacion donde una empresa requiere un modelo que pueda predecir los precios de las casas en una ciudad teniendo en cuenta una serie de caracteristicas de la casas. </p>
 							<p>Algo a resaltar en este caso es que el pedido de quien da la base de datos es que se realice un modelo predictivo de los precios de casas, por lo que proporciona una base de datos en 2 partes:
 								<ul>
 									<li>Train: de 1460 observaciones con 80 variables que usaremos para definir y entrenar el modelo.</li>
 									<li>Test: de 1459 observaciones con 79 variables donde no aparece el precio final de venta de las casas.</li>   
 								</p>
-							<span class="image fit"><img src="images/Prediccion casas/1 pedido de variables grupo train.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/1 pedido de variables grupo train.png" alt="" /></span>
 							<p>Muestra de las 80 variables del grupo train que sera  cual usaremos para entrenar el modelo.</p>
 							<p>Primero vemos cómo se organizan los datos por medio de un head.</p>
-							<span class="image fit"><img src="images/Prediccion casas/2 primer head de train.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/2 primer head de train.png" alt="" /></span>
 							<p>Saco el ID de la base de datos ya que es un número que no tiene ningún efecto sobre el precio de la casas solo es organizativo.</p>
-							<span class="image fit"><img src="images/Prediccion casas/2.1 seg head train, drop id.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/2.1 seg head train, drop id.png" alt="" /></span>
 							<p>Ahora pedimos una breve descripción de la variable sales price.</p>
-							<span class="image fit"><img src="images/Prediccion casas/3 pedido de sum() sales prace.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/3 pedido de sum() sales prace.png" alt="" /></span>
 							<p>Por facilidad, solo usare las variables numéricas, ya que las variables categóricas necesitan un tratamiento de Dummies y en ese proceso se perdería demasiados grados de libertad.</p>
-                            <span class="image fit"><img src="images/Prediccion casas/4 Me quedo solo con los numericos.png" alt="" /></span>
+                            <span class="image fit"><img src="../assets/images/prediccion_casas/4 Me quedo solo con los numericos.png" alt="" /></span>
 							<p>Esto me deja con 37 variables donde está integrado sales price que es nuestra variable que pasará a ser la dependiente por lo que quedamos con 1 variable dependiente y 36 variables independientes.</p>
 							<p>Pedimos ver cómo se comportan las variables por medio de un histograma.</p>
-                            <span class="image fit"><img src="images/Prediccion casas/5 Histogramas de las 37 variables de trabajo train.png" alt="" /></span>
+                            <span class="image fit"><img src="../assets/images/prediccion_casas/5 Histogramas de las 37 variables de trabajo train.png" alt="" /></span>
 							<p>Procedo a usar solo el data set train.</p>
-                            <span class="image fit"><img src="images/Prediccion casas/6 split de data set train 2 test y train interno.png" alt="" /></span>
+                            <span class="image fit"><img src="../assets/images/prediccion_casas/6 split de data set train 2 test y train interno.png" alt="" /></span>
 							<p>Lo que se hace es separar el train en 2 partes, una train y test para el modelo por lo que usaremos <strong>train_train</strong>, <strong>train_test</strong> para la formación y entrenamiento del modelo y  el data set test para la validación.</p>
 							<p>Como existen datos NaN dentro del dataset, deberemos limpiar esto ya que no permitirán correr el modelo, y su tratamiento podría afectar con sesgo al modelo.  Se consigue por medio de Drop NaN.</p>
-                            <span class="image fit"><img src="images/Prediccion casas/7 separacion de los datos en x e y  ya sin NAN.png" alt="" /></span>
+                            <span class="image fit"><img src="../assets/images/prediccion_casas/7 separacion de los datos en x e y  ya sin NAN.png" alt="" /></span>
 							<p>Separamos el daa set que contenia los valores tanto enteros como flotantes, (x_train_flotantes_sin_nan) en 2 partes, los x por un lado que seran nuestras caracteristicas determinísticas y la variable sales (y) que es la dependiente.</p>
 							<p>Pedimos prediccion del modelo entrenado comparado con los valores reales de entrenamiento.</p>
-                            <span class="image fit"><img src="images/Prediccion casas/8 mustra de como resulto el modelo con respecto a la verdaderos resultados..png" alt="" /></span>
+                            <span class="image fit"><img src="../assets/images/prediccion_casas/8 mustra de como resulto el modelo con respecto a la verdaderos resultados..png" alt="" /></span>
 							<p>Ahora pedimos una comparativa de la predicción del modelo con el Dataset test que dejamos separado desde el principio</p>
-							<span class="image fit"><img src="images/Prediccion casas/9 datos test reales contra el modelo.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/9 datos test reales contra el modelo.png" alt="" /></span>
 							<p>Para saber si nuestro modelo fue significativo para ayudar en la prediccion buscaremos 2 metodos de validacion. El R2 y el test OOB.</p>
-							<span class="image fit"><img src="images/Prediccion casas/10 R2 del modelo entrenado .png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/10 R2 del modelo entrenado .png" alt="" /></span>
 							<p>Esto muestra que el  modelo tiene un R2 elevado de 0.86 esto puede interpretarse como que el modelo logra explicar el 86% de la variación de los valores de las casas en estudio.</p>
 							<p>Otro método de testeo es el OOB que implica tener una medida de que tan bien ajusta el resultado del modelo por medio de la diferencia entre el valor real y el predicho. Esto es con la salida del RSME.</p>
-							<span class="image fit"><img src="images/Prediccion casas/11 datos rmse de OOB reales test contra el modelo .png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/prediccion_casas/11 datos rmse de OOB reales test contra el modelo .png" alt="" /></span>
 							<p>RMSE de 27,596 significa que, en promedio, las predicciones del modelo están desviadas de los valores reales de la variable objetivo por aproximadamente $27,950.</p>
 							<p>Dado que el promedio de la variable objetivo es de $185,000, podemos interpretar este RMSE en relación con ese valor. Por ejemplo, el RMSE es aproximadamente el 15% del promedio de la variable objetivo ($27,950 / $185,000 ≈ 0.15). Esto significa que,<strong> en promedio</strong>, las predicciones del modelo tienen una desviación del <strong>15% con respecto al precio real de la casa.</strong></p>
 							<p>Esto da que las variables usadas en el modelo si sirven para estimar un precio relativamente cercano al valor real. </p>
@@ -86,7 +86,7 @@
 								  <li>Conclusiones finales.</li>
                               </ul>
                             
-							  <p>Espero te haya gustado leerlo, recuerda que hay mas secciones que puedes explorar sobre los analisis que realizo, en la parte <a href="index.html#one">Mis Proyectos </a></p>
+							  <p>Espero te haya gustado leerlo, recuerda que hay mas secciones que puedes explorar sobre los analisis que realizo, en la parte <a href="../index.html#one">Mis Proyectos </a></p>
                             
 
 						
@@ -101,7 +101,7 @@
 			<footer id="footer" class="wrapper alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="index.html">Samuel Lajud</a></li>
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="../index.html">Samuel Lajud</a></li>
 					</ul>
 				</div>
 			</footer>
