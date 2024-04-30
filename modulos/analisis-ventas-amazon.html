@@ -9,20 +9,20 @@
 		<title>Practica "Analisis ventas de amazon" </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Data Analytics</a>
+				<a href="../index.html" class="title">Data Analytics</a>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="generic.html" class="active">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
-						<li><a href="ruta/a/tu/archivo/comprimido.zip" download>Descargar Archivo Comprimido</a></li>
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="../generic.html" class="active">Generic</a></li>
+						<li><a href="../elements.html">Elements</a></li>
+						<li><a href="../descargas/analisis_de_ventas_online/dataset.zip" download>Descargar Archivo Comprimido</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -34,47 +34,48 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major"> Analisis ventas de amazon </h1>
-							<span class="image fit"><img src="images/logo-amazon.jpg" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/logo-amazon.jpg" alt="" /></span>
 							<p>En este caso tendremos una base de datos proporcionada por kaggle que contiene las transacciones de un usuario de amazon. Vamos a ver un analisis descriptivo sobre la actividad de este usuario en amazon y obtendremos respuestas a preguntas bases que servirian para poder plantear una estrategia comercial.</p>
 							<p>
 							Primero pedimos la muestra de la base de datos para ver cómo están formada y que caracteristicas podremos considerar relevantes o no, incluso en caso si deberíamos formular una nueva variable que complemente los datos que ya tenemos</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/1 Primera mestra de foram de datos.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/1 Primera mestra de foram de datos.png" alt="" /></span>
 							<p>Vemos que las características son:
-								IDENTIFICACIÓN DEL PEDIDO  : ORDER ID
-								FECHA DE PEDIDO : ORDER DATE  
-								FECHA DE ENVÍO : SHIP DATE
-								EMAIL QUE REALIZA EL PEDIDO : EMAIL ID
-								LOCALIDAD :  GEOGRAPHY 
-								CATEGORÍA : CATEGORY
-								NOMBRE DEL PRODUCTO  :   PRODUCT NAME 
-								VENTA TOTAL  : SALES 
-								CANTIDAD DE ÍTEM EN EL PEDIDO : QUANTITY
-								GANANCIA NETA DE LA VENTA  : PROFIT
+								<ul>
+									<li>IDENTIFICACIÓN DEL PEDIDO  : ORDER ID</li>
+									<li>FECHA DE PEDIDO : ORDER DATE</li>  
+									<li>FECHA DE ENVÍO : SHIP DATE</li>
+									<li>EMAIL QUE REALIZA EL PEDIDO : EMAIL ID</li>
+									<li>LOCALIDAD :  GEOGRAPHY</li> 
+									<li>CATEGORÍA : CATEGORY</li>
+									<li>NOMBRE DEL PRODUCTO  :   PRODUCT NAME</li> 
+									<li>VENTA TOTAL  : SALES</li> 
+									<li>CANTIDAD DE ÍTEM EN EL PEDIDO : QUANTITY</li>
+									<li>GANANCIA NETA DE LA VENTA  : PROFIT</li>
 							</p>
 							<p>Por lo que vemos, ID no es una variable relevante asi que podremos sacarla. y además podemos crear la variable dia de diferencia, (Days_Difference) para comprender el tiempo que demora la empresa entre dia que recepciona el pedido y  día que realiza el envío.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/2 segundo pedido creo dias de diferencia.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/2 segundo pedido creo dias de diferencia.png" alt="" /></span>
 							<p>Este cuadro muestra como fue ya dropeado el ID y que queda creada la categoría days_difference para poder tener en consideración cuánto tiempo demoramos en enviar los pedidos</p>
 							<p>Podemos hacer uso de esta nueva variable para ver qué productos tardamos más en enviar. Diremos arbitrariamente que se considera tardar como 5 días o más entre el momento que tomó el pedido y realizar el envío.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/3 Categoria de producto que tardan mas de 5 dias.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/3 Categoria de producto que tardan mas de 5 dias.png" alt="" /></span>
 							<p>Vemos que el producto que más frecuentemente demoramos en enviar son los blinders y en segundo lugar son los papers.</p>
 							<p>Pero también es importante tal vez para el vendedor cuál es el destino que tiene mayor tardanza de envío. Para eso podemos pedir saber cuales son los estados, debido a que si lo hacemos por localidades el gráfico quedará  muy improlijo.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/4 frecuencia de destino donde tardan mas de 5 dias el envio.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/4 frecuencia de destino donde tardan mas de 5 dias el envio.png" alt="" /></span>
 							<p>Por lo que vemos es california con gran diferencia el lugar donde frecuentemente nos tardamos mas de 5 días realizar el envío.</p>
 							<p>En caso de la empresa tal vez sea mas interesante ver que lugares nos estan dejando mas o menos ganancias, Podemos empezar a ver esto primero pidiendo saber cuánto fue el total de nuestras ventas y si tuvimos pérdidas (loss) o ganancias (profit).</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/5 total sales y profit.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/5 total sales y profit.png" alt="" /></span>
 							<p>El dato es simple, solo muestra que el volumen de ventas total fue de $725,457.824 y que a partir de ahí  tenemos un profit de $108,418.448. Pero al tener varios destinos de ventas no nos dice mucho respecto al negocio en sí en cada unidad operativa o destino de nuestras ventas, por lo que procedemos a pedir que nos diga qué lugares generan y que cantidad de ventas , posteriormente haremos lo mismo con los lugares que nos generan profit esto nos permite tener más claridad sobre cómo está la situación del negocio en cada lugar específico.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/6 total de ventas y porcentaje por estado.png"alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/6 total de ventas y porcentaje por estado.png"alt="" /></span>
 							<p>también lo veremos con un gráfico de tortas para poder apreciar en imagen como es la distribución de estas ventas.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/6.2 grafico de torta, porcentaje de ventas.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/6.2 grafico de torta, porcentaje de ventas.png" alt="" /></span>
 							<p>Ahora pedimos saber lo que más nos interesa es donde se ven más reflejadas esas ganancias de la empresa, si están distribuidas de manera homogénea o si existen desbalances.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/7 profit por estado y de  manera porcentual.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/7 profit por estado y de  manera porcentual.png" alt="" /></span>
 							<p>Vemos que existen estados que generan pérdidas y que son muy pocos los estados que realmente nos generan ganancia siendo california a la cabeza con un número sumamente grande.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/7.2 historgrama de profit por estado.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/7.2 historgrama de profit por estado.png" alt="" /></span>
 							<p>Esto nos terminó advirtiendo que tenemos en nuestro negocios unidades que no son rentables y que están utilizando las capacidades de la empresa pero dando pérdidas, para entender en la situación vamos a separa los 3 estados que nos generan pérdidas y de contrapartida veremos en orden como son los 3 estados que nos generan ganancias hoy.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/Lugares que nos generan perdidas.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/Lugares que nos generan perdidas.png" alt="" /></span>
 							<p>Vemos que estos 3 estados nos están generando pérdidas y además no son muy relevantes en los porcentajes de ventas, por lo que sería óptimo poder tomar acción que reponga esta situación por parte de la empresa o su correspondiente encargado.</p>
 							<p>En contrapartida vemos las 3 mejores unidades de negocio.</p>
-							<span class="image fit"><img src="images/Analisis de Ventas de amazon/imagen PNG/z Lugares que mas ganancais nos dan.png" alt="" /></span>
+							<span class="image fit"><img src="../assets/images/analisis_de ventas_de_online/z Lugares que mas ganancais nos dan.png" alt="" /></span>
 							<p>Estas 3 Unidades de negocio son las que más ganancias nos dieron y cuánto nos dieron cada una.</p>
 							<p>Las conclusiones que podemos ver después de este análisis es, poner en conocimiento a los encargados correspondientes para que subsanen esta situación en la brevedad, poner en consideración la demora de los días al estado de california que es nuestro estado clave, esto nos podría permitir entablar una posición más fuerte en esa zona y como es la principal fuente de ingreso de la empresa debería ser una prioridad poder acentuar su posición ahí. </p>
 							<p style="font-size: 20px; font-weight: bold;">Aquí termina el análisis de este proyecto</p>
@@ -100,7 +101,7 @@
 			<footer id="footer" class="wrapper alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="index.html">Samuel Lajud</a></li>
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="../index.html">Samuel Lajud</a></li>
 					</ul>
 				</div>
 			</footer>
