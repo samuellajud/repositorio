@@ -75,17 +75,18 @@
 							<p>Vemos que el puesto con más rotación fue el representativo de ventas.</p>
 							<p>Y el salario.</p>
 							<span class="image fit"><img src="../assets/images/abandono_empleado/10_salario_combinado_abandono.png" alt="" /></span>
-							<p>Vemos que el perfil de empleado que más abandonaría la empresa es. 
-								Bajo nivel educativo
-								Trabaja en ventas
-								Soltero
-								Bajo salario
-								</p>
+							<p>Vemos que el perfil de empleado que más abandonaría la empresa es.</p>
+								<ul>
+									<li>Bajo nivel educativo.</li>
+									<li>Trabaja en ventas.</li>
+									<li>Soltero.</li>
+									<li>Bajo salario.</li>
+								</ul>
 							<p></p>
 							<p><Strong>AHORA PASAREMOS A EL MODELO DE MACHINE LEARNING.</Strong></p>
 							<p>Primero procedemos a pasar todas las variables categóricas a numéricas, esto por medio de generarlas una dummy para cada posible categoría, Ejemplo. viaja pasará a tener 3 posibles valores, antes solo tenía la opción de poner “No viaja, Viaja frecuentemente y viaja raramente”. Se mantendrá el dato con un valor 1 (true) en el caso que tenía la persona, y 0 (false) en los otros casos. </p>
 							<p>Por lo que sí teníamos una persona que <strong>viaja de manera frecuente</strong> ahora su respuesta se verá de la siguiente forma:</p>
-							<p> No viaja:0           <strong>Viaja frecuentemente</strong>:1              Viaja rara vez: 0 </p>
+							<p> No viaja:0 </p>          <p><strong>Viaja frecuentemente</strong>:1 </p>            <p>Viaja rara vez: 0 </p></p> 
 							<span class="image fit"><img src="../assets/images/abandono_empleado/11_separacion_categoricas_a_dummys.png" alt="" /></span>
 							<p>Este cuadro muestra cómo fue el efecto en la variable viaje, el mismo método se usó para todas las variables categóricas</p>
 							<p>Una vez verificado que no hay inconvenientes y que tenemos tanto las variables numéricas como las nuevas variables dummy listas para poder usar, procedemos con la separación de los datos.</p>
