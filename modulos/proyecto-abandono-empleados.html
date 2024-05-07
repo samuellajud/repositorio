@@ -59,25 +59,68 @@
 								</p>
 							<p>Ahora veremos que sucede con las características que son numéricas, Esto pidiendo un resumen de los datos.</p>
                             <span class="image fit"><img src="../assets/images/abandono_empleado/5_sumarize_de_las_variables_numericas.png" alt="" /></span>
-							<p>Procedo a usar solo el data set train.</p>
-                            <span class="image fit"><img src="../assets/images/prediccion_casas/6 split de data set train 2 test y train interno.png" alt="" /></span>
-							<p>Lo que se hace es separar el train en 2 partes, una train y test para el modelo por lo que usaremos <strong>train_train</strong>, <strong>train_test</strong> para la formación y entrenamiento del modelo y  el data set test para la validación.</p>
-							<p>Como existen datos NaN dentro del dataset, deberemos limpiar esto ya que no permitirán correr el modelo, y su tratamiento podría afectar con sesgo al modelo.  Se consigue por medio de Drop NaN.</p>
-                            <span class="image fit"><img src="../assets/images/prediccion_casas/7 separacion de los datos en x e y  ya sin NAN.png" alt="" /></span>
-							<p>Separamos el daa set que contenia los valores tanto enteros como flotantes, (x_train_flotantes_sin_nan) en 2 partes, los x por un lado que seran nuestras caracteristicas determinísticas y la variable sales (y) que es la dependiente.</p>
-							<p>Pedimos prediccion del modelo entrenado comparado con los valores reales de entrenamiento.</p>
-                            <span class="image fit"><img src="../assets/images/prediccion_casas/8 mustra de como resulto el modelo con respecto a la verdaderos resultados..png" alt="" /></span>
-							<p>Ahora pedimos una comparativa de la predicción del modelo con el Dataset test que dejamos separado desde el principio</p>
-							<span class="image fit"><img src="../assets/images/prediccion_casas/9 datos test reales contra el modelo.png" alt="" /></span>
-							<p>Para saber si nuestro modelo fue significativo para ayudar en la prediccion buscaremos 2 metodos de validacion. El R2 y el test OOB.</p>
-							<span class="image fit"><img src="../assets/images/prediccion_casas/10 R2 del modelo entrenado .png" alt="" /></span>
-							<p>Esto muestra que el  modelo tiene un R2 elevado de 0.86 esto puede interpretarse como que el modelo logra explicar el 86% de la variación de los valores de las casas en estudio.</p>
-							<p>Otro método de testeo es el OOB que implica tener una medida de que tan bien ajusta el resultado del modelo por medio de la diferencia entre el valor real y el predicho. Esto es con la salida del RSME.</p>
-							<span class="image fit"><img src="../assets/images/prediccion_casas/11 datos rmse de OOB reales test contra el modelo .png" alt="" /></span>
-							<p>RMSE de 27,596 significa que, en promedio, las predicciones del modelo están desviadas de los valores reales de la variable objetivo por aproximadamente $27,950.</p>
-							<p>Dado que el promedio de la variable objetivo es de $185,000, podemos interpretar este RMSE en relación con ese valor. Por ejemplo, el RMSE es aproximadamente el 15% del promedio de la variable objetivo ($27,950 / $185,000 ≈ 0.15). Esto significa que,<strong> en promedio</strong>, las predicciones del modelo tienen una desviación del <strong>15% con respecto al precio real de la casa.</strong></p>
-							<p>Esto da que las variables usadas en el modelo si sirven para estimar un precio relativamente cercano al valor real. </p>
-							<p>Aqui terminda el analisis de este proyecto.</p>
+							<p>Se prefiere sacar la variable sexo,  Asi tambien empleados tiene solo un valor, y no es algo relevante para el estudio. </p>
+							<p>Lo mismo sucede con horas de quincena que tiene la media, mediana en 80 y no tienen variación. Es mejor sacarla.</p>
+							<p> Ahora preguntamos ¿Cuál es la tasa de abandono?</p>
+                            <span class="image fit"><img src="../assets/images/abandono_empleado/6_cantidad_de_abandono.png" alt="" /></span>
+							<p>Ahora vamos a mapear un perfil de empleado que abandona la empresa. Esto lo haremos combinando los datos de perfiles de empleados y si salieron o no de la empresa en el último año. </p>
+							<p>Por ejemplo vemos un cuadro donde pondremos la educación y que porcentaje de personas que cumple con esta categoría han abandonado la empresa en el último año. En el caso de la gente que solo tiene primaria completa, el 30% abandonó la empresa en el último periodo. </p>
+                            <span class="image fit"><img src="../assets/images/abandono_empleado/7_combinacion_de_que_se_va_y_educacion.png" alt="" /></span>
+							<p>Por ejemplo vemos un cuadro donde pondremos la educación y que porcentaje de personas que cumple con esta categoría han abandonado la empresa en el último año. En el caso de la gente que solo tiene primaria completa, el 30% abandonó la empresa en el último periodo. </p>
+							<p>Estado civil.</p>
+                            <span class="image fit"><img src="../assets/images/abandono_empleado/8_estado_civil_abandono_trabajo.png" alt="" /></span>
+							<p>De los solteros que están en plantilla el 25% abandonó la empresa.</p>
+							<p>Ahora pediremos ver que puesto es el que más rotación tuvo.</p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/9_puesto_combinado_abandono.png" alt="" /></span>
+							<p>Vemos que el puesto con más rotación fue el representativo de ventas.</p>
+							<p>Y el salario.</p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/10_salario_combinado_abandono.png" alt="" /></span>
+							<p>Vemos que el perfil de empleado que más abandonaría la empresa es. 
+								Bajo nivel educativo
+								Trabaja en ventas
+								Soltero
+								Bajo salario
+								</p>
+							<p></p>
+							<p><Strong>AHORA PASAREMOS A EL MODELO DE MACHINE LEARNING.</Strong></p>
+							<p>Primero procedemos a pasar todas las variables categóricas a numéricas, esto por medio de generarlas una dummy para cada posible categoría, Ejemplo. viaja pasará a tener 3 posibles valores, antes solo tenía la opción de poner “No viaja, Viaja frecuentemente y viaja raramente”. Se mantendrá el dato con un valor 1 (true) en el caso que tenía la persona, y 0 (false) en los otros casos. </p>
+							<p>Por lo que sí teníamos una persona que <strong>viaja de manera frecuente</strong> ahora su respuesta se verá de la siguiente forma:</p>
+							<p> No viaja:0           <strong>Viaja frecuentemente</strong>:1              Viaja rara vez: 0 </p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/11_separacion_categoricas_a_dummys.png" alt="" /></span>
+							<p>Este cuadro muestra cómo fue el efecto en la variable viaje, el mismo método se usó para todas las variables categóricas</p>
+							<p>Una vez verificado que no hay inconvenientes y que tenemos tanto las variables numéricas como las nuevas variables dummy listas para poder usar, procedemos con la separación de los datos.</p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/12_pedidp_x_e_y.png" alt="" /></span>
+							<p>Aquí ya separamos a <strong>“y”</strong> como variable dependiente (target) y a <strong>“x”</strong> todas las demás variables. </p>
+							<p>Luego debemos pedir una separación del dataset a usar entre valores “train” que serán los que entrenan el modelo y los valores <strong>“train”</strong> que serán los que usare para validar el modelo </p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/13_separacion_train_test.png" alt="" /></span>
+							<p>Usaré <strong>“DecisionTreeClassifier”</strong> es un modelo predictivo basado en un árbol de decisiones. En este árbol, cada nodo interno representa una "decisión" basada en el valor de una característica, y cada hoja representa el resultado de una clasificación.</p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/14_array_con_predicciones.png" alt="" /></span>
+							<p>Esto es el array con los valores de la probabilidad que cada empleado nos abandone en el data set x_train</p>
+							<p>El <strong>"ROC"</strong> (Receiver Operating Characteristic) es una curva que representa la relación entre la tasa de verdaderos positivos (TPR, True Positive Rate) y la tasa de falsos positivos (FPR, False Positive Rate) para diferentes umbrales de clasificación. La métrica AUC (Area Under the Curve) se refiere al área bajo la curva ROC. </p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/15_ROC_modelo_.png" alt="" /></span>
+							<p>Esto implica que el modelo ayuda a predecir el comportamiento de los empleados con probabilidad de abandono. </p>
+							<p>Ahora voy a poner dentro del dataset la variable abandono para ver la probabilidad de que ocurriera una salida de la empresa de este empleado. En caso que sea 1 el empleado tiene una alta probabilidad de abandonar la empresa.</p>
+							<span class="image fit"><img src="../assets/images/abandono_empleado/16_base_con_predicciones.png" alt="" /></span>
+							<p>Este estudio finaliza aquí, La base de datos puede ser administrada al jefe de Recurso humano y poner en conocimiento para que tome las medidas necesarias según sea el caso de cada empleado. </p>
+                                       
+							<p><strong>En repaso se hizo:</strong></p>
+                              <ul>
+                                  <li>Previsualización de datos.</li>
+								  <li>Eliminación de datos irrelevantes.</li>
+								  <li>Tratamiento de datos.</li>
+								  <li>Visualizacion de datos.</li>
+								  <li>Manipulacion de Base de Datos.</li>
+								  <li>Creación de variable relevante.</li>
+                                  <li>Testeo de modelo predictivo.</li>
+								  <li>Conclusiones finales.</li>
+                              </ul>
+                            
+							  <p>Espero te haya gustado leerlo, recuerda que hay mas secciones que puedes explorar sobre los analisis que realizo, en la parte <a href="../index.html#one">Mis Proyectos </a></p>
+                            
+
+
+
+
 						</div>
 					</section>
 
