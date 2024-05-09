@@ -56,9 +56,23 @@
                     text-shadow: 0 0 2px rgb(255, 81, 0), 0 0 4px rgb(255, 81, 0), 0 0 6px rgb(255, 81, 0), 0 0 8px rgb(255, 81, 0), 0 0 10px rgb(255, 81, 0), 0 0 12px rgb(255, 81, 0), 0 0 14px rgb(255, 81, 0);
                 }
 			}
+			#mode-toggle {
+             position: fixed;
+			 top: 20px;
+			 right: 20px;
+			 z-index: 9999;
+			 padding: 10px 20px;
+			 border: none;
+			 border-radius: 5px;
+			 background-color: #000000;
+             color: #f3eeee;
+             cursor: pointer;
+    }
 		</style>			
 	</head>
-	<body class="is-preload">
+	<body class="is-preload diurno">
+		<button id="mode-toggle" onclick="cambiarModo()">Cambiar Modo</button>
+
 
 		<!-- Sidebar -->
 			<section id="sidebar">
@@ -280,6 +294,52 @@
 					</ul>
 				</div>
 			</footer>
+			<script>
+				function cambiarModo() {
+					var body = document.body;
+					var sections = document.querySelectorAll('section[id]');
+					if (body.classList.contains("diurno")) {
+						body.classList.remove("diurno");
+						body.classList.add("nocturno");
+						// Cambiar los colores de fondo de las secciones a modo nocturno
+						sections.forEach(function(section) {
+							section.style.backgroundColor = "#333";
+						});
+					} else {
+						body.classList.remove("nocturno");
+						body.classList.add("diurno");
+						// Cambiar los colores de fondo de las secciones a modo diurno
+						sections.forEach(function(section) {
+							var sectionId = section.getAttribute("id");
+							switch (sectionId) {
+								case "sidebar":
+									section.style.backgroundColor = "#483285";
+									break;
+
+								case "intro":
+									section.style.backgroundColor = "#4319F7";
+									break;
+								case "one":
+									section.style.backgroundColor = "#1937F7";
+									break;
+								case "two":
+									section.style.backgroundColor = "#19B3F7";
+									break;
+								case "three":
+									section.style.backgroundColor = "#4319F7";
+									break;
+							    case "four":
+									section.style.backgroundColor = "#7454cc";
+									break;
+			
+								
+								default:
+									break;
+							}
+						});
+					}
+				}
+			</script>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
