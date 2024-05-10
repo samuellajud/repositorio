@@ -64,14 +64,17 @@
 			 padding: 10px 20px;
 			 border: none;
 			 border-radius: 5px;
-			 background-color: #000000;
+			 background-color:rgba(0, 0, 0, 0);
              color: #f3eeee;
              cursor: pointer;
+			 display: flex;
+			 align-items: center;
     }
 		</style>			
 	</head>
 	<body class="is-preload diurno">
-		<button id="mode-toggle" onclick="cambiarModo()">Cambiar Modo</button>
+		<button id="mode-toggle" onclick="cambiarModo()">
+			<i id="mode-icon" class="fas fa-moon"></i></button>
 
 
 		<!-- Sidebar -->
@@ -298,6 +301,7 @@
 				function cambiarModo() {
 					var body = document.body;
 					var sections = document.querySelectorAll('section[id]');
+					var modeIcon = document.getElementById('mode-icon');
 					if (body.classList.contains("diurno")) {
 						body.classList.remove("diurno");
 						body.classList.add("nocturno");
@@ -305,6 +309,8 @@
 						sections.forEach(function(section) {
 							section.style.backgroundColor = "#333";
 						});
+						modeIcon.classList.remove("fa-moon");
+						modeIcon.classList.add("fa-sun");
 					} else {
 						body.classList.remove("nocturno");
 						body.classList.add("diurno");
@@ -313,9 +319,9 @@
 							var sectionId = section.getAttribute("id");
 							switch (sectionId) {
 								case "sidebar":
-									section.style.backgroundColor = "#483285";
+									section.style.backgroundColor = "#312450";
 									break;
-
+									
 								case "intro":
 									section.style.backgroundColor = "#4319F7";
 									break;
@@ -329,7 +335,7 @@
 									section.style.backgroundColor = "#4319F7";
 									break;
 							    case "four":
-									section.style.backgroundColor = "#7454cc";
+									section.style.backgroundColor = "#5E42A6";
 									break;
 			
 								
@@ -337,6 +343,8 @@
 									break;
 							}
 						});
+						modeIcon.classList.remove("fa-sun");
+						modeIcon.classList.add("fa-moon");
 					}
 				}
 			</script>
