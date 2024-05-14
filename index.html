@@ -15,16 +15,16 @@
     
 	    <style>/* Cambia el color de fondo de la sección "Two" a verde */
 		    
-
+              /* Cambia "#00ff00" por Los co,ores que quiero, ver que paleta de colores usar */
 			#intro {
 				background-color: #4319F7; 
 			}
 			#one {
-				background-color: #1937F7; 
+				background-color: #4319F7; 
 			}
 			
 			#two {
-				background-color: #19B3F7; /* Cambia "#00ff00" por el color verde que desees */
+				background-color: #1937F7; 
 			}
 			#three {
 				background-color: #4319F7;
@@ -115,13 +115,14 @@
 						</style>
 						<ul>
 							<li><a href="#intro">Bienvenido </a></li>
-							<li><a href="#one">Mis Proyectos </a></li>
-							<li><a href="#three">Aptitudes </a></li>
-							<li><a href="#four">Trabajemos juntos </a></li>
+							<li><a href="#one">Aptitudes  </a></li>
+							<li><a href="#two">Mis Proyectos</a></li>
+							<li><a href="#three">Trabajemos juntos </a></li>
 						</ul>
 					</nav>
 				</div>
 			</section>
+			
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -139,8 +140,50 @@
 						</div>
 					</section>
 
+					<!-- Three -->
+					<section id="one" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>Aptitudes </h2>
+							<p></p>
+							<div class="features">
+								<section>
+									<span class="icon solid major fas fa-code"></span>
+									<h3>Programacion con python</h3>
+									<p>Diseñar y ensamblar proyectos en base a lenguaje python.</p>
+								</section>
+								<section>
+									<span class="icon solid major fas fa-comments-dollar"></span>
+									<h3>Bussines Analytics</h3>
+									<p>Enterder el negocio, sus puntos fuertes y debiles, y como aumentar la eficiencia del modelo de negocio.</p>
+								</section>
+								<section>
+									<i  class="icon solid major fa-duotone fa-chart-pie"></i>
+									<h3>Data science</h3>
+									<p>Analisis Avanzados de datos, modelacion de los estudios.</p>
+								</section>
+								<section>
+									<span class="icon solid major fas fa-code-branch"></span>
+									<h3>Trabajo en Equipo </h3>
+									<p>Trabajo con distintos sectores en equipo para obtener el mejor resultado.</p>
+								</section>
+								<section>
+									<i class="icon solid major fas fa-robot"></i>									
+									<h3>Machine learning</h3>
+									<p>Aumatizaciones de modelos de aprendizaje automatico para mejorar y pulir de manera cosntante el codigo y los modelos.</p>
+								</section>
+								<section>
+									<i class="icon solid major fa-solid fa-headphones"></i>
+									<h3>Teletrabajo</h3>
+									<p>Manejo de herramientas colaborativas que facilitan el trabajo en equipo y la integracion a un mismo objetivo de manera remota y eficiente. </p>
+								</section>
+							</div>
+						</div>
+					</section>
+
+
+
 				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
+					<section id="two" class="wrapper style2 spotlights">
 						<section>
 							<a href="modulos/analisis-ventas-amazon.html" class="image"><img src="assets/images/logo_online.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
@@ -193,51 +236,11 @@
 						</section>
 					</section>
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Aptitudes </h2>
-							<p></p>
-							<div class="features">
-								<section>
-									<span class="icon solid major fas fa-code"></span>
-									<h3>Programacion con python</h3>
-									<p>Diseñar y ensamblar proyectos en base a lenguaje python.</p>
-								</section>
-								<section>
-									<span class="icon solid major fas fa-comments-dollar"></span>
-									<h3>Bussines Analytics</h3>
-									<p>Enterder el negocio, sus puntos fuertes y debiles, y como aumentar la eficiencia del modelo de negocio.</p>
-								</section>
-								<section>
-									<i  class="icon solid major fa-duotone fa-chart-pie"></i>
-									<h3>Data science</h3>
-									<p>Analisis Avanzados de datos, modelacion de los estudios.</p>
-								</section>
-								<section>
-									<span class="icon solid major fas fa-code-branch"></span>
-									<h3>Trabajo en Equipo </h3>
-									<p>Trabajo con distintos sectores en equipo para obtener el mejor resultado.</p>
-								</section>
-								<section>
-									<i class="icon solid major fas fa-robot"></i>									
-									<h3>Machine learning</h3>
-									<p>Aumatizaciones de modelos de aprendizaje automatico para mejorar y pulir de manera cosntante el codigo y los modelos.</p>
-								</section>
-								<section>
-									<i class="icon solid major fa-solid fa-headphones"></i>
-									<h3>Teletrabajo</h3>
-									<p>Manejo de herramientas colaborativas que facilitan el trabajo en equipo y la integracion a un mismo objetivo de manera remota y eficiente. </p>
-								</section>
-							</div>
-						</div>
-					</section>
-
-
+				
 
 
 				<!-- four-->
-					<section id="four" class="wrapper style1 fade-up">
+					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Contacto</h2>
 							<p>Puedes counicarte conmigo con cualquiera de los metodos que dejo abajo. Tambien puede mandarme un Whatsapp para contestar mas rapido </p>
@@ -339,16 +342,15 @@
 									section.style.backgroundColor = "#4319F7";
 									break;
 								case "one":
-									section.style.backgroundColor = "#1937F7";
-									break;
-								case "two":
-									section.style.backgroundColor = "#19B3F7";
-									break;
-								case "three":
 									section.style.backgroundColor = "#4319F7";
 									break;
-							    case "four":
-									section.style.backgroundColor = "#5E42A6";
+
+								case "two":
+									section.style.backgroundColor = "#1937F7";
+									break;
+									break;
+							    case "three":
+									section.style.backgroundColor = "#4319F7";
 									break;
 			
 								
